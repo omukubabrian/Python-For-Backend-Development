@@ -1,3 +1,4 @@
+#collection of key value pairs
 student={"Name":"Brian","age": 25 ,"city": "Nairobi"}
 print(f"{student['Name']} is {student['age']} years old and lives in {student['city']}")
 print(student.get("phone","not given"))
@@ -5,3 +6,10 @@ print("age" in student)
 student["age"]=26
 student["phone"]="0712453988"
 print(student)
+
+
+
+user={"name":"Amina","Age":25,"is_acive":True}
+print(user["name"])
+print(user.get("email"))
+print(user.get("email","n/a"))

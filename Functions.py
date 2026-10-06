@@ -1,3 +1,4 @@
+#a function is a named reusable block of code
 def say_hello():
     print("Hello!")
 say_hello()
