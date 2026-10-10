@@ -50,14 +50,14 @@ class LibraryItem:
         return ""
 
     def to_dict(self)->dict:
-        return{"kind":self.kind,"item_id":self.items
+        return{"kind":self.kind,"item_id":self.item_id,"title":self.title,"borrower":self._borrower,"due_date":self._due_date.isoformat() if self._due_date else None
         }
 
 
 
     def __str__(self)->str:
         status="available"if self.is_available else f"borrowed,due {self._due_date}"
-        return f"#{self.item_id} [{self.kind}]{self.title}{self.details()}({status})"
+        return f"#{self.item_id} [{self.kind}] {self.title} {self.details()} ({status})"
 
 class Book(LibraryItem):
     kind="book"
@@ -69,11 +69,11 @@ class Book(LibraryItem):
         self.author=author
 
     def details(self)->str:
-        return f"by {self.auther}"
+        return f"by {self.author}"
 
     def to_dict(self)->dict:
-        data=super().to-dict()
-        data["auther"]=self.author
+        data=super().to_dict()
+        data["author"]=self.author
         return data
 
 
@@ -88,7 +88,7 @@ class Magazine(LibraryItem):
         self.issue=issue
 
     def details(self)->str:
-        return f",issue{self.issue}"
+        return f",issue {self.issue}"
 
     def to_dict(self)->dict:
         data=super().to_dict()
@@ -102,7 +102,7 @@ def item_from_dict(data: dict)->LibraryItem:
     item_class=ITEM_TYPES[data.pop("kind")]
     if data.get("due_date"):
         data["due_date"]=date.fromisoformat(data["due_date"])
-        return item_class(**data)
+    return item_class(**data)
 
     
     

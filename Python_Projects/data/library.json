@@ -1,0 +1,10 @@
+[
+  {
+    "kind": "book",
+    "item_id": 1,
+    "title": "Omukuba",
+    "borrower": "Amina",
+    "due_date": "2026-10-31",
+    "author": "Brian"
+  }
+]
