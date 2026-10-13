@@ -14,4 +14,3 @@ assert mag.return_item(today=date(2026, 1, 19)) == 1.0
 
 print("All tests passed")
 
-3
